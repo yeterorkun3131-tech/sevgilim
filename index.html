@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sevgilim ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;background:radial-gradient(circle at top,#4a1025,#16040c 65%);font-family:Georgia,serif;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
+.wrap{width:min(92%,620px);position:relative;z-index:2}.heart{font-size:58px;animation:pulse 1.4s infinite;margin-bottom:8px}
+h1{font-size:42px;margin:8px 0 20px}.message{font-size:21px;line-height:1.8;color:#ffe9ef}.hidden{opacity:0;transform:translateY(20px);transition:1.2s}.show{opacity:1;transform:none}
+button{margin-top:28px;padding:14px 28px;border:0;border-radius:30px;background:#fff;color:#8b163c;font-size:17px;cursor:pointer;box-shadow:0 8px 30px #0005}
+.bouquet{font-size:90px;margin-top:20px;opacity:0;transform:scale(.4);transition:1.3s}.bloom{opacity:1;transform:scale(1)}
+.petals{position:absolute;inset:0;pointer-events:none}.petal{position:absolute;top:-30px;font-size:22px;animation:fall linear infinite;opacity:.75}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.12)}}
+.small{font-size:15px;margin-top:18px;color:#ffc8d6}
+</style>
+</head>
+<body>
+<div class="petals" id="petals"></div>
+<div class="wrap">
+<div class="heart">❤️</div><h1>Sevgilim...</h1>
+<div id="intro" class="message hidden">Sana söylemek istediğim birkaç şey var.<br>Bu kez sadece kalbimden geldiği gibi...</div>
+<button id="btn" onclick="start()">Bana tıkla ❤️</button>
+<div id="main" class="message hidden">
+<p>Sevgilim...</p>
+<p>Seni kırdığım için gerçekten çok üzgünüm. Keşke o anı geri alabilsem, keşke seni üzmeden önce bir saniye durup düşünseydim. Ama geri alamıyorum. Yapabileceğim tek şey, hatamı kabul edip sana ne kadar pişman olduğumu anlatmak.</p>
+<p>Sen benim için sadece sevgilim değilsin. Hayatımda olmasını istediğim, konuştuğumda içimin huzur bulduğu, gülüşünü görünce istemsizce mutlu olduğum insansın.</p>
+<p>Bazen seni ne kadar sevdiğimi sana doğru şekilde gösteremiyorum. Ama bu, seni daha az sevdiğim anlamına gelmiyor. Tam tersine, seni kaybetme düşüncesi bile içimi fazlasıyla acıtıyor.</p>
+<p>Senden hemen her şeyi unutmanı istemiyorum. Sadece bana bir şans daha verirsen, bunu gerçekten hak etmeye çalışacağımı bilmeni istiyorum.</p>
+<p>Sevgilim, iyi ki hayatımdasın.<br>Seni üzmek değil, yüzünü güldüren kişi olmak istiyorum.</p>
+<p><b>Özür dilerim sevgilim. Seni çok seviyorum. ❤️</b></p>
+</div>
+<div id="bouquet" class="bouquet">💐🌹🌷🌹💐</div>
+<div id="end" class="small hidden">Bu çiçekler gerçek olmasa da, sana olan sevgim gerçek. ❤️</div>
+</div>
+<script>
+const p=document.getElementById('petals');for(let i=0;i<24;i++){let s=document.createElement('span');s.className='petal';s.textContent=['🌸','🌹','💗','✨'][i%4];s.style.left=Math.random()*100+'%';s.style.animationDuration=(5+Math.random()*7)+'s';s.style.animationDelay=(-Math.random()*10)+'s';p.appendChild(s)}
+setTimeout(()=>document.getElementById('intro').classList.add('show'),500);
+function start(){document.getElementById('btn').style.display='none';document.getElementById('main').classList.add('show');setTimeout(()=>document.getElementById('bouquet').classList.add('bloom'),900);setTimeout(()=>document.getElementById('end').classList.add('show'),1800)}
+</script>
+</body></html>
